@@ -32,9 +32,9 @@ os.environ['PATH'] = str(OSGEO_ROOT) + os.pathsep + os.environ.get('PATH', '')
 SECRET_KEY = 'django-insecure-v^5z-pkzh_!gdp%nx4(=9452$@=dm#yy&e6fl#kl0*1f&#wq$y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
