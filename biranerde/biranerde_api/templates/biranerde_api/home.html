@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BiraNerde</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body { margin:0; font-family: Arial; }
+        #navbar { height:50px; background:#333; color:white; display:flex; align-items:center; padding:0 20px; }
+        #container { display:flex; height:calc(100vh - 50px); }
+        #map { flex:3; }
+        #sidebar { flex:1; background:#f5f5f5; overflow:auto; padding:10px; }
+        .mekan-item { padding:5px; margin:5px 0; background:#fff; cursor:pointer; border:1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div id="navbar">BiraNerde</div>
+    <div id="container">
+        <div id="map"></div>
+        <div id="sidebar">
+            <h3>Uygun Mekanlar</h3>
+            <button onclick="sortByPrice()">Fiyat: Ucuzdan Pahalıya</button>
+            <button onclick="sortByPuan()">Puan: Yüksekten Düşüğe</button>
+            <div id="mekan-list"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        const mekanlar = JSON.parse('{{ mekan_json|escapejs }}');
+
+        // Leaflet harita
+        const map = L.map('map').setView([39.925, 32.866], 6); // Türkiye merkez
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        const sidebar = document.getElementById('mekan-list');
+        let markers = [];
+
+        function renderMekanlar(list) {
+            sidebar.innerHTML = '';
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+
+            list.forEach(m => {
+                const props = m.properties;
+                const coords = m.geometry.coordinates; // [lon, lat]
+
+                // Sidebar item
+                const div = document.createElement('div');
+                div.className = 'mekan-item';
+                div.innerHTML = `<b>${props.ad}</b><br>Fiyat: ${props.fiyat_araligi}<br>Puan: ${props.puan}`;
+                div.onclick = () => {
+                    map.setView([coords[1], coords[0]], 16);
+                    marker.openPopup();
+                };
+                sidebar.appendChild(div);
+
+                // Harita marker
+                const marker = L.marker([coords[1], coords[0]]).addTo(map)
+                    .bindPopup(`<b>${props.ad}</b><br>Fiyat: ${props.fiyat_araligi}`);
+                markers.push(marker);
+            });
+        }
+
+        // İlk render
+        renderMekanlar(mekanlar.features);
+
+        // Sıralama fonksiyonları
+        function sortByPrice() {
+            const sorted = mekanlar.features.sort((a,b) => {
+                // Fiyatı parse et, örn: '₺₺' -> 2
+                const p1 = a.properties.fiyat_araligi.length;
+                const p2 = b.properties.fiyat_araligi.length;
+                return p1 - p2;
+            });
+            renderMekanlar(sorted);
+        }
+
+        function sortByPuan() {
+            const sorted = mekanlar.features.sort((a,b) => b.properties.puan - a.properties.puan);
+            renderMekanlar(sorted);
+        }
+    </script>
+</body>
+</html>
