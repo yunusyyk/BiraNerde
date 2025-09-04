@@ -1,1 +1,1 @@
-web: gunicorn biranerde.wsgi
+web: gunicorn biranerdemain.wsgi:application
