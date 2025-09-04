@@ -15,11 +15,10 @@ import os
 from dotenv import load_dotenv  # type: ignore
 
 # Load environment variables
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR / '.env')
 # --- GDAL / GeoDjango settings removed for Render Free plan ---
 # If you switch to a paid plan with GDAL, you can re-enable these lines
 # OSGEO_ROOT = (BASE_DIR.parent / 'venv' / 'Lib' / 'site-packages' / 'osgeo')
