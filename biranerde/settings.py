@@ -12,33 +12,29 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv  # type: ignore
+
+# Load environment variables
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Configure GDAL/PROJ paths for GeoDjango on Windows (virtualenv-local)
-OSGEO_ROOT = (BASE_DIR.parent / 'venv' / 'Lib' / 'site-packages' / 'osgeo')
-GDAL_LIBRARY_PATH = str(OSGEO_ROOT / 'gdal304.dll')
-GEOS_LIBRARY_PATH = str(OSGEO_ROOT / 'geos_c.dll')
-os.environ.setdefault('GDAL_DATA', str(OSGEO_ROOT / 'data' / 'gdal'))
-os.environ.setdefault('PROJ_LIB', str(OSGEO_ROOT / 'data' / 'proj'))
-os.environ['PATH'] = str(OSGEO_ROOT) + os.pathsep + os.environ.get('PATH', '')
-
+# --- GDAL / GeoDjango settings removed for Render Free plan ---
+# If you switch to a paid plan with GDAL, you can re-enable these lines
+# OSGEO_ROOT = (BASE_DIR.parent / 'venv' / 'Lib' / 'site-packages' / 'osgeo')
+# GDAL_LIBRARY_PATH = str(OSGEO_ROOT / 'gdal304.dll')
+# GEOS_LIBRARY_PATH = str(OSGEO_ROOT / 'geos_c.dll')
+# os.environ.setdefault('GDAL_DATA', str(OSGEO_ROOT / 'data' / 'gdal'))
+# os.environ.setdefault('PROJ_LIB', str(OSGEO_ROOT / 'data' / 'proj'))
+# os.environ['PATH'] = str(OSGEO_ROOT) + os.pathsep + os.environ.get('PATH', '')
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v^5z-pkzh_!gdp%nx4(=9452$@=dm#yy&e6fl#kl0*1f&#wq$y'
-
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
-
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
+    'django.contrib.gis',  # Keep for GeoDjango models, but no DLL required
     'rest_framework',
     'rest_framework_gis',
     'biranerde_api',
@@ -82,13 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'biranerde.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-from dotenv import load_dotenv
-load_dotenv()  
-
-SECRET_KEY = os.getenv('SECRET_KEY')
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -100,44 +90,22 @@ DATABASES = {
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+# Static files
 STATIC_URL = 'static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
