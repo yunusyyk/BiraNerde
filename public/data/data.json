@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Old Monkey Pub",
+    "lat": 40.988972874800886, 
+    "lng": 29.024239317654832,
+    "cheapestBeer": 100,
+    "happyHourEnd": "24:00",
+    "address": "https://maps.app.goo.gl/uGxrFJZ7TZMpBGpP7"
+  },
+  {
+    "id": 2,
+    "name": "Rock'n Rolla",
+    "lat": 40.98902451504159, 
+    "lng": 29.02502461335453,
+    "cheapestBeer": 105,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/59tPBeBUy5SoV3Qq6"
+  },
+  {
+    "id": 3,
+    "name": "RocknRolla Gastro Pub",
+    "lat": 40.99032700386019, 
+    "lng": 29.028366348015222,
+    "cheapestBeer": 105,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/JNEEVA4dwEFmPtpx5"
+  },
+  {
+    "id": 4,
+    "name": "Ağaç Ev Kadıköy",
+    "lat": 40.99020749243316, 
+    "lng": 29.027902870170198, 
+    "cheapestBeer": 105,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/DxFvCdhWRmKr43ka8"
+  },
+  {
+    "id": 5,
+    "name": "Kuytu",
+    "lat": 40.98914840149355, 
+    "lng": 29.024823689662895, 
+    "cheapestBeer": 75,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/wZ4kj6RC5Ca4Pv3V6"
+  },
+  {
+    "id": 6,
+    "name": "Lokkaa Irish Pub",
+    "lat": 41.04399252519401, 
+    "lng": 29.00626340323123, 
+    "cheapestBeer": 110,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/gaCGUGFngbHF6XncA"
+  }
+]
