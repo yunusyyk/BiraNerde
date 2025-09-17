@@ -41,7 +41,7 @@ function createBeerSvg(color: string): string {
 
 export default function GoogleMapsBeerMap() {
   const mapRef = useRef<HTMLDivElement | null>(null)
-  const [venues, setVenues] = useState<Venue[]>([])
+  const [, setVenues] = useState<Venue[]>([])
   const [selected, setSelected] = useState<Venue | null>(null)
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
   const markersRef = useRef<google.maps.Marker[]>([])
