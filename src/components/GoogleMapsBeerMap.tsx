@@ -10,6 +10,7 @@ export type Venue = {
   happyHourEnd: string
   address: string
   rating: number
+  description?: string
 }
 
 function isHappyHourActive(happyHourEnd: string, now: Date = new Date()): boolean {
@@ -161,6 +162,51 @@ export default function GoogleMapsBeerMap() {
     <div className="flex w-full h-[calc(100vh-64px)] flex-col md:flex-row">
       <div className="w-full md:w-2/3 h-80 md:h-full min-h-[320px]" ref={mapRef} />
       <div className="w-full md:w-1/3 md:h-full border-t md:border-t-0 md:border-l border-gray-200 p-4 md:p-6 overflow-y-auto bg-white">
+        {selected ? (
+          <div className="space-y-4 mb-6">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h2 className="text-2xl font-semibold tracking-tight">{selected.name}</h2>
+                <div className="flex items-center gap-2 mt-1">
+                  <StarRating value={selected.rating} />
+                  <span className="text-sm text-gray-600">{selected.rating.toFixed(1)}</span>
+                </div>
+              </div>
+              {isHappyHourActive(selected.happyHourEnd) ? (
+                <span className="inline-block px-2 py-1 rounded bg-yellow-200 text-yellow-900 text-xs font-medium whitespace-nowrap">Happy hour devam ediyor</span>
+              ) : (
+                <span className="inline-block px-2 py-1 rounded bg-blue-900 text-white text-xs font-medium whitespace-nowrap">Happy hour geçti</span>
+              )}
+            </div>
+
+            <div className="rounded-xl border border-gray-200 shadow-sm p-4 bg-white">
+              <dl className="grid grid-cols-1 gap-3 text-sm">
+                <div className="flex items-center justify-between">
+                  <dt className="text-gray-500">En ucuz bira</dt>
+                  <dd className="font-medium text-gray-900">{selected.cheapestBeer} ₺</dd>
+                </div>
+                {selected.description && (
+                  <div className="text-gray-800 leading-relaxed -mt-1">
+                    {selected.description}
+                  </div>
+                )}
+                <div className="flex items-center justify-between">
+                  <dt className="text-gray-500">Happy hour bitiş</dt>
+                  <dd className="font-medium text-gray-900">{selected.happyHourEnd}</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-gray-500">Adres Linki</dt>
+                  <dd className="font-medium text-blue-600 hover:text-blue-700 underline underline-offset-2">
+                    <a href={selected.address} target="_blank" rel="noopener noreferrer">Haritada aç</a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="text-xs text-gray-400">Bir işaretçiye tıkladığınızda harita o konuma odaklanır.</div>
+          </div>
+        ) : null}
+
         <div className="flex items-center justify-between gap-2 mb-4 sticky top-0 bg-white/90 backdrop-blur z-10 py-2">
           <button
             type="button"
@@ -205,45 +251,7 @@ export default function GoogleMapsBeerMap() {
             <div className="text-sm text-gray-500">Kriterlere uyan mekan bulunamadı.</div>
           )}
         </div>
-        {selected ? (
-          <div className="space-y-4">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <h2 className="text-2xl font-semibold tracking-tight">{selected.name}</h2>
-                <div className="flex items-center gap-2 mt-1">
-                  <StarRating value={selected.rating} />
-                  <span className="text-sm text-gray-600">{selected.rating.toFixed(1)}</span>
-                </div>
-              </div>
-              {isHappyHourActive(selected.happyHourEnd) ? (
-                <span className="inline-block px-2 py-1 rounded bg-yellow-200 text-yellow-900 text-xs font-medium whitespace-nowrap">Happy hour devam ediyor</span>
-              ) : (
-                <span className="inline-block px-2 py-1 rounded bg-blue-900 text-white text-xs font-medium whitespace-nowrap">Happy hour geçti</span>
-              )}
-            </div>
-
-            <div className="rounded-xl border border-gray-200 shadow-sm p-4 bg-white">
-              <dl className="grid grid-cols-1 gap-3 text-sm">
-                <div className="flex items-center justify-between">
-                  <dt className="text-gray-500">En ucuz bira</dt>
-                  <dd className="font-medium text-gray-900">{selected.cheapestBeer} ₺</dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt className="text-gray-500">Happy hour bitiş</dt>
-                  <dd className="font-medium text-gray-900">{selected.happyHourEnd}</dd>
-                </div>
-                <div className="flex items-center justify-between">
-                  <dt className="text-gray-500">Adres Linki</dt>
-                  <dd className="font-medium text-blue-600 hover:text-blue-700 underline underline-offset-2">
-                    <a href={selected.address} target="_blank" rel="noopener noreferrer">Haritada aç</a>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            <div className="text-xs text-gray-400">Bir işaretçiye tıkladığınızda harita o konuma odaklanır.</div>
-          </div>
-        ) : (
+        {!selected && (
           <div className="h-full flex items-center justify-center">
             <div className="text-center">
               <div className="text-base font-medium text-gray-900 mb-1">Mekan seçilmedi</div>

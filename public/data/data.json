@@ -7,7 +7,8 @@
     "cheapestBeer": 100,
     "happyHourEnd": "24:00",
     "address": "https://maps.app.goo.gl/uGxrFJZ7TZMpBGpP7",
-    "rating": 4.5
+    "rating": 4.5,
+    "description": "50CL EFES MALT ŞİŞE"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "cheapestBeer": 105,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/59tPBeBUy5SoV3Qq6",
-    "rating": 4.0
+    "rating": 4.0,
+    "description": "50CL TUBORG FIÇI"
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "cheapestBeer": 105,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/JNEEVA4dwEFmPtpx5",
-    "rating": 4.0
+    "rating": 4.0,
+    "description": "50CL TUBORG FIÇI"
   },
   {
     "id": 4,
@@ -37,26 +40,364 @@
     "cheapestBeer": 105,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/DxFvCdhWRmKr43ka8",
-    "rating": 4.0
+    "rating": 4.0,
+    "description": "50CL TUBORG FIÇI"
   },
   {
     "id": 5,
     "name": "Kuytu",
     "lat": 40.98914840149355, 
     "lng": 29.024823689662895, 
-    "cheapestBeer": 75,
+    "cheapestBeer": 150,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/wZ4kj6RC5Ca4Pv3V6",
-    "rating": 3.5
+    "rating": 3.5,
+    "description": "50CL TUBORG ŞİŞE(33cl 75tl)"
   },
   {
     "id": 6,
     "name": "Lokkaa Irish Pub",
-    "lat": 41.04399252519401, 
-    "lng": 29.00626340323123, 
+    "lat": 41.043951711966,
+    "lng": 29.006248107072096, 
+    "cheapestBeer": 100,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/TRYh2BV2pfE2sVLb7",
+    "rating": 4.0,
+    "description": "50CL EFES FIÇI."
+  },
+  {
+    "id": 7,
+    "name": "Chops Cafe & Pub",
+    "lat": 41.04710091780351, 
+    "lng": 29.0074716954210571,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/KzQeT7zZQbzTXrrX8",
+    "rating": 3.0,
+    "description": "50CL (happy hour dışı 140)"
+  },
+  {
+    "id": 8,
+    "name": "Rock n Rolla Barbaros",
+    "lat": 41.04700595427393, 
+    "lng": 29.00751946379189,  
+    "cheapestBeer": 105,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/8eTrcwPKa1XroDg67",
+    "rating": 4.5,
+    "description": "50CL TUBORG FIÇI"
+  },
+  {
+    "id": 9,
+    "name": "MayBee Pub",
+    "lat": 41.04676118449079, 
+    "lng": 29.007534902291347,  
+    "cheapestBeer": 90,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/RbBYwUFVj5UxySHB9",
+    "rating": 4.5,
+    "description": "50CL EFES FIÇI."
+  },
+  {
+    "id": 10,
+    "name": "MissisiPi Pub",
+    "lat": 41.04666217971855,
+    "lng": 29.00737492275236,  
+    "cheapestBeer": 115,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/BbmbJUscLTsoANqBA",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 11,
+    "name": "Beer Port Beşiktaş",
+    "lat": 41.04467308003965, 
+    "lng": 29.007021866971108,  
+    "cheapestBeer": 115,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/q2K8EzVb5w5oKzPm8",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 12,
+    "name": "Çarşı Pub Sahne Beşiktaş",
+    "lat": 41.044913847901526, 
+    "lng": 29.00694635777759 ,  
+    "cheapestBeer": 100,
+    "happyHourEnd": "24:00",
+    "address": "https://maps.app.goo.gl/qE7Qop3q6L6THkrr9",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 13,
+    "name": "Pub-Line",
+    "lat": 41.044642645038536, 
+    "lng": 29.007006515349527,  
+    "cheapestBeer": 115,
+    "happyHourEnd": "24:00",
+    "address": "https://maps.app.goo.gl/q2K8EzVb5w5oKzPm8",
+    "rating": 4.0,
+    "description": "50CL (ONLY STUDENT)"
+  },
+  {
+    "id": 14,
+    "name": "Çıtır Pub",
+    "lat": 41.043223625213265, 
+    "lng": 29.006592184776757,  
+    "cheapestBeer": 130,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/EP5RH7jhi8VsQS94A",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 15,
+    "name": "Gen Kokteyl Bar",
+    "lat": 41.04316512570354, 
+    "lng": 29.005881239440573,  
+    "cheapestBeer": 99,
+    "happyHourEnd": "19:00",
+    "address": "https://maps.app.goo.gl/K9V7imfXM6p6i8im6",
+    "rating": 4.0,
+    "description": "50CL TUBORG ŞİŞE"
+  },
+  {
+    "id": 16,
+    "name": "Beer House Beşiktaş",
+    "lat": 41.04387014862926, 
+    "lng": 29.004280082408947,  
+    "cheapestBeer": 99,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/NVUbQr18TFxUejhv9",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 17,
+    "name": "Totem PuB Beşiktaş",
+    "lat": 41.04388741839797, 
+    "lng": 29.004189580915057,  
+    "cheapestBeer": 99,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/KS93b6F1ugSZhiWN6",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 18,
+    "name": "Beer Plus",
+    "lat": 41.04391683373464, 
+    "lng": 29.004268124688444,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/yjSM7AXiwexAUQZq6",
+    "rating": 4.0,
+    "description": "50CL TUBORG ŞİŞE"
+  },
+  {
+    "id": 19,
+    "name": "The United Pub",
+    "lat": 41.04399455264752,
+    "lng": 29.00442761451689,   
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/Nx1grtU3P7KXynJu7",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 20,
+    "name": "The Hope",
+    "lat": 41.04398721718108, 
+    "lng": 29.004512130023233,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/HD9fafj3Wu2Dy5P97",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 21,
+    "name": "Esperi",
+    "lat": 41.043954202642496, 
+    "lng": 29.004055526132966 ,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/EDff96uY1zqyxyFS7",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 22,
+    "name": "Holy Pub",
+    "lat": 41.04395421094229, 
+    "lng": 29.004059787312613,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/58p4CMHjyKSr7BL17",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 23,
+    "name": "Beyaz Restaurant & Cafe",
+    "lat": 41.043862859636285,
+    "lng": 29.0045694037868 ,  
     "cheapestBeer": 110,
     "happyHourEnd": "18:00",
-    "address": "https://maps.app.goo.gl/gaCGUGFngbHF6XncA",
-    "rating": 4.0
+    "address": "https://maps.app.goo.gl/arvRwDUD1ie4nF4Y8",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 24,
+    "name": "Epope Beşiktaş",
+    "lat": 41.0435164561136, 
+    "lng": 29.00563835500766,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/SpzFgsPm4epd8H8r6",
+    "rating": 4.0,
+    "description": "50CL(Servis Ücreti var)"
+  },
+  {
+    "id": 25,
+    "name": "Eski Limon",
+    "lat": 41.04351484238149, 
+    "lng": 29.006229550427165,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "24:00",
+    "address": "https://maps.app.goo.gl/8eU7tNGcQTC6m1iP8",
+    "rating": 4.0,
+    "description": "50CL EFES FIÇI."
+  },
+  {
+    "id": 26,
+    "name": "EKŞİ LİMON",
+    "lat": 41.043746068202566, 
+    "lng": 29.006189985152997 ,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "24:00",
+    "address": "https://maps.app.goo.gl/wUUwMpLTRr7VigrA6",
+    "rating": 4.0,
+    "description": "50CL EFES FIÇI."
+  },
+  {
+    "id": 27,
+    "name": "Eureka Pub",
+    "lat": 41.04390159091588, 
+    "lng": 29.006338358417263,  
+    "cheapestBeer": 100,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/eqZwkMWQnqCV2V1r7",
+    "rating": 4.0,
+    "description": "50CL EFES FIÇI."
+  },
+  {
+    "id": 28,
+    "name": "Number 1 Pub",
+    "lat": 41.04415944307071, 
+    "lng": 29.00630009212758,  
+    "cheapestBeer": 99,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/VW9ExjQEg2jLS2218",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 29,
+    "name": "IF Performance Hall Beşiktaş",
+    "lat": 41.04405526201283,
+    "lng": 29.006442249218154,  
+    "cheapestBeer": 130,
+    "happyHourEnd": "18:00",
+    "address": "https://maps.app.goo.gl/BD9LiUCrDyYEsq9MA",
+    "rating": 4.0,
+    "description": "50CL"
+  },
+  {
+    "id": 30,
+    "name": "Thema Beşiktaş",
+    "lat": 41.044111904173555, 
+    "lng": 29.006450966489545,  
+    "cheapestBeer": 120,
+    "happyHourEnd": "17:00",
+    "address": "https://maps.app.goo.gl/ZxKVSK56k7pHRVFr9",
+    "rating": 4.0,
+    "description": "50CL"
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]
