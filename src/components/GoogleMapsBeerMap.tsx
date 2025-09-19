@@ -9,6 +9,7 @@ export type Venue = {
   cheapestBeer: number
   happyHourEnd: string
   address: string
+  rating: number
 }
 
 function isHappyHourActive(happyHourEnd: string, now: Date = new Date()): boolean {
@@ -39,15 +40,57 @@ function createBeerSvg(color: string): string {
   return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg)
 }
 
+function StarRating({ value }: { value: number }) {
+  const clamped = Math.max(0, Math.min(5, value))
+  const roundedToHalf = Math.round(clamped * 2) / 2
+  const fullStars = Math.floor(roundedToHalf)
+  const hasHalfStar = roundedToHalf - fullStars === 0.5
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
+
+  const Star = ({ filled }: { filled: boolean }) => (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" className={filled ? 'text-amber-500' : 'text-gray-300'}>
+      <path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+  )
+
+  const HalfStar = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" className="text-amber-500">
+      <defs>
+        <linearGradient id="halfGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="50%" stopColor="currentColor"/>
+          <stop offset="50%" stopColor="transparent"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#halfGrad)" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+      <path fill="none" stroke="currentColor" strokeWidth="1" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+    </svg>
+  )
+
+  return (
+    <div className="flex items-center" aria-label={`Puan: ${roundedToHalf} / 5`}>
+      {Array.from({ length: fullStars }).map((_, i) => (
+        <Star key={`full-${i}`} filled={true} />
+      ))}
+      {hasHalfStar && <HalfStar />}
+      {Array.from({ length: emptyStars }).map((_, i) => (
+        <Star key={`empty-${i}`} filled={false} />
+      ))}
+    </div>
+  )
+}
+
 export default function GoogleMapsBeerMap() {
   const mapRef = useRef<HTMLDivElement | null>(null)
-  const [, setVenues] = useState<Venue[]>([])
+  const [allVenues, setAllVenues] = useState<Venue[]>([])
+  const [displayedVenues, setDisplayedVenues] = useState<Venue[]>([])
   const [selected, setSelected] = useState<Venue | null>(null)
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
   const markersRef = useRef<google.maps.Marker[]>([])
+  const [sortByPriceAsc, setSortByPriceAsc] = useState<boolean>(false)
+  const [showOnlyHappyHour, setShowOnlyHappyHour] = useState<boolean>(false)
 
   // Env anahtarı
-  const apiKey = ((import.meta as any).env?.VITE_GOOGLE_MAPS_API_KEY || (process as any)?.env?.VITE_GOOGLE_MAPS_API_KEY) as string
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
   useEffect(() => {
     async function init() {
@@ -57,7 +100,8 @@ export default function GoogleMapsBeerMap() {
         // JSON dosyasını yükle
         const dataResp = await fetch('/data/data.json')
         const list: Venue[] = await dataResp.json()
-        setVenues(list)
+        setAllVenues(list)
+        setDisplayedVenues(list)
 
         // Google Maps yükleyici
         const loader = new Loader({ apiKey, version: 'weekly' })
@@ -101,16 +145,75 @@ export default function GoogleMapsBeerMap() {
     if (apiKey) init()
   }, [apiKey])
 
+  // Listeyi buton durumlarına göre hesapla
+  useEffect(() => {
+    let next = [...allVenues]
+    if (showOnlyHappyHour) {
+      next = next.filter(v => isHappyHourActive(v.happyHourEnd))
+    }
+    if (sortByPriceAsc) {
+      next.sort((a, b) => a.cheapestBeer - b.cheapestBeer)
+    }
+    setDisplayedVenues(next)
+  }, [allVenues, sortByPriceAsc, showOnlyHappyHour])
+
   return (
-    <div className="flex w-full h-[calc(100vh-64px)]">
-      <div className="w-2/3 h-full min-h-[500px]" ref={mapRef} />
-      <div className="w-1/3 h-full border-l border-gray-200 p-6 overflow-y-auto bg-white">
+    <div className="flex w-full h-[calc(100vh-64px)] flex-col md:flex-row">
+      <div className="w-full md:w-2/3 h-80 md:h-full min-h-[320px]" ref={mapRef} />
+      <div className="w-full md:w-1/3 md:h-full border-t md:border-t-0 md:border-l border-gray-200 p-4 md:p-6 overflow-y-auto bg-white">
+        <div className="flex items-center justify-between gap-2 mb-4 sticky top-0 bg-white/90 backdrop-blur z-10 py-2">
+          <button
+            type="button"
+            className={`px-3 py-2 rounded-md text-sm font-medium border ${sortByPriceAsc ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+            onClick={() => setSortByPriceAsc(v => !v)}
+          >
+            Fiyata göre sırala
+          </button>
+          <button
+            type="button"
+            className={`px-3 py-2 rounded-md text-sm font-medium border ${showOnlyHappyHour ? 'bg-amber-500 text-white border-amber-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'}`}
+            onClick={() => setShowOnlyHappyHour(v => !v)}
+          >
+            Sadece Happy Hour
+          </button>
+        </div>
+
+        <div className="space-y-2 mb-6">
+          {displayedVenues.map(v => (
+            <button
+              key={v.id}
+              onClick={() => {
+                setSelected(v)
+                const map = mapInstanceRef.current
+                if (map) {
+                  map.panTo({ lat: v.lat, lng: v.lng })
+                  map.setZoom(Math.max(map.getZoom() ?? 12, 14))
+                }
+              }}
+              className={`w-full text-left p-3 rounded-lg border hover:bg-gray-50 transition ${selected?.id === v.id ? 'border-blue-600 bg-blue-50' : 'border-gray-200 bg-white'}`}
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <div className="font-medium text-gray-900">{v.name}</div>
+                  <div className="text-xs text-gray-500 mt-0.5">{isHappyHourActive(v.happyHourEnd) ? 'Happy hour aktif' : `Happy hour: ${v.happyHourEnd}`}</div>
+                </div>
+                <div className="text-sm font-semibold text-gray-900 whitespace-nowrap">{v.cheapestBeer} ₺</div>
+              </div>
+            </button>
+          ))}
+          {displayedVenues.length === 0 && (
+            <div className="text-sm text-gray-500">Kriterlere uyan mekan bulunamadı.</div>
+          )}
+        </div>
         {selected ? (
           <div className="space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight">{selected.name}</h2>
-                <div className="text-sm text-gray-600 mt-1">{selected.address}</div>
+                <div className="flex items-center gap-2 mt-1">
+                  <StarRating value={selected.rating} />
+                  <span className="text-sm text-gray-600">{selected.rating.toFixed(1)}</span>
+                </div>
               </div>
               {isHappyHourActive(selected.happyHourEnd) ? (
                 <span className="inline-block px-2 py-1 rounded bg-yellow-200 text-yellow-900 text-xs font-medium whitespace-nowrap">Happy hour devam ediyor</span>
@@ -131,7 +234,9 @@ export default function GoogleMapsBeerMap() {
                 </div>
                 <div className="flex items-center justify-between">
                   <dt className="text-gray-500">Adres Linki</dt>
-                  <dd className="font-medium text-gray-900">{selected.address}</dd>
+                  <dd className="font-medium text-blue-600 hover:text-blue-700 underline underline-offset-2">
+                    <a href={selected.address} target="_blank" rel="noopener noreferrer">Haritada aç</a>
+                  </dd>
                 </div>
               </dl>
             </div>

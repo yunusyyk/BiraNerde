@@ -6,7 +6,8 @@
     "lng": 29.024239317654832,
     "cheapestBeer": 100,
     "happyHourEnd": "24:00",
-    "address": "https://maps.app.goo.gl/uGxrFJZ7TZMpBGpP7"
+    "address": "https://maps.app.goo.gl/uGxrFJZ7TZMpBGpP7",
+    "rating": 4.5
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "lng": 29.02502461335453,
     "cheapestBeer": 105,
     "happyHourEnd": "18:00",
-    "address": "https://maps.app.goo.gl/59tPBeBUy5SoV3Qq6"
+    "address": "https://maps.app.goo.gl/59tPBeBUy5SoV3Qq6",
+    "rating": 4.0
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "lng": 29.028366348015222,
     "cheapestBeer": 105,
     "happyHourEnd": "18:00",
-    "address": "https://maps.app.goo.gl/JNEEVA4dwEFmPtpx5"
+    "address": "https://maps.app.goo.gl/JNEEVA4dwEFmPtpx5",
+    "rating": 4.0
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "lng": 29.027902870170198, 
     "cheapestBeer": 105,
     "happyHourEnd": "18:00",
-    "address": "https://maps.app.goo.gl/DxFvCdhWRmKr43ka8"
+    "address": "https://maps.app.goo.gl/DxFvCdhWRmKr43ka8",
+    "rating": 4.0
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "lng": 29.024823689662895, 
     "cheapestBeer": 75,
     "happyHourEnd": "18:00",
-    "address": "https://maps.app.goo.gl/wZ4kj6RC5Ca4Pv3V6"
+    "address": "https://maps.app.goo.gl/wZ4kj6RC5Ca4Pv3V6",
+    "rating": 3.5
   },
   {
     "id": 6,
@@ -51,6 +56,7 @@
     "lng": 29.00626340323123, 
     "cheapestBeer": 110,
     "happyHourEnd": "18:00",
-    "address": "https://maps.app.goo.gl/gaCGUGFngbHF6XncA"
+    "address": "https://maps.app.goo.gl/gaCGUGFngbHF6XncA",
+    "rating": 4.0
   }
 ]
