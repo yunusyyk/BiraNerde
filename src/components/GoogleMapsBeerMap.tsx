@@ -159,7 +159,7 @@ export default function GoogleMapsBeerMap() {
   }, [allVenues, sortByPriceAsc, showOnlyHappyHour])
 
   return (
-    <div className="flex w-full h-[calc(100vh-64px)] flex-col md:flex-row">
+    <div className="flex w-full h-[calc(98vh-64px)] flex-col md:flex-row">
       <div className="w-full md:w-2/3 h-80 md:h-full min-h-[320px]" ref={mapRef} />
       <div className="w-full md:w-1/3 md:h-full border-t md:border-t-0 md:border-l border-gray-200 p-4 md:p-6 overflow-y-auto bg-white">
         {selected ? (
