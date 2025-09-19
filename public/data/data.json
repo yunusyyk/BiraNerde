@@ -106,7 +106,7 @@
     "cheapestBeer": 115,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/BbmbJUscLTsoANqBA",
-    "rating": 4.0,
+    "rating": 3.0,
     "description": "50CL"
   },
   {
@@ -117,7 +117,7 @@
     "cheapestBeer": 115,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/q2K8EzVb5w5oKzPm8",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL"
   },
   {
@@ -128,7 +128,7 @@
     "cheapestBeer": 100,
     "happyHourEnd": "24:00",
     "address": "https://maps.app.goo.gl/qE7Qop3q6L6THkrr9",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL"
   },
   {
@@ -161,7 +161,7 @@
     "cheapestBeer": 99,
     "happyHourEnd": "19:00",
     "address": "https://maps.app.goo.gl/K9V7imfXM6p6i8im6",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL TUBORG ŞİŞE"
   },
   {
@@ -172,7 +172,7 @@
     "cheapestBeer": 99,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/NVUbQr18TFxUejhv9",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL"
   },
   {
@@ -183,7 +183,7 @@
     "cheapestBeer": 99,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/KS93b6F1ugSZhiWN6",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL"
   },
   {
@@ -194,7 +194,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/yjSM7AXiwexAUQZq6",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL TUBORG ŞİŞE"
   },
   {
@@ -205,7 +205,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/Nx1grtU3P7KXynJu7",
-    "rating": 4.0,
+    "rating": 3.0,
     "description": "50CL"
   },
   {
@@ -216,7 +216,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/HD9fafj3Wu2Dy5P97",
-    "rating": 4.0,
+    "rating": 2.5,
     "description": "50CL"
   },
   {
@@ -238,7 +238,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/58p4CMHjyKSr7BL17",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL"
   },
   {
@@ -249,7 +249,7 @@
     "cheapestBeer": 110,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/arvRwDUD1ie4nF4Y8",
-    "rating": 4.0,
+    "rating": 2.5,
     "description": "50CL"
   },
   {
@@ -271,7 +271,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "24:00",
     "address": "https://maps.app.goo.gl/8eU7tNGcQTC6m1iP8",
-    "rating": 4.0,
+    "rating": 4.5,
     "description": "50CL EFES FIÇI."
   },
   {
@@ -282,7 +282,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "24:00",
     "address": "https://maps.app.goo.gl/wUUwMpLTRr7VigrA6",
-    "rating": 4.0,
+    "rating": 4.5,
     "description": "50CL EFES FIÇI."
   },
   {
@@ -293,7 +293,7 @@
     "cheapestBeer": 100,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/eqZwkMWQnqCV2V1r7",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL EFES FIÇI."
   },
   {
@@ -304,7 +304,7 @@
     "cheapestBeer": 99,
     "happyHourEnd": "18:00",
     "address": "https://maps.app.goo.gl/VW9ExjQEg2jLS2218",
-    "rating": 4.0,
+    "rating": 3.5,
     "description": "50CL"
   },
   {
@@ -326,7 +326,7 @@
     "cheapestBeer": 120,
     "happyHourEnd": "17:00",
     "address": "https://maps.app.goo.gl/ZxKVSK56k7pHRVFr9",
-    "rating": 4.0,
+    "rating": 3.0,
     "description": "50CL"
   }
 
