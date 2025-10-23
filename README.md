@@ -1,3 +1,27 @@
+
+https://biranerde.netlify.app
+
+Site şuan sadece Beşiktaş ilçesindeki barları göstermektedir.
+(23.10.2025 güncel)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
